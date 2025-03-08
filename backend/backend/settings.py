@@ -31,6 +31,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'main.apps.MainConfig',
+    'corsheaders',
+    'rest_framework', 
+    "drf_spectacular",
+    "drf_spectacular_sidecar",
+    'rest_framework_simplejwt',
+    'rest_framework.authtoken',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -66,6 +73,19 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Sporta AI API',
+    'DESCRIPTION': 'Docs for the API',
+    'VERSION': '1.0.0',
+    "SERVE_INCLUDE_SCHEMA": False,
+    # other settings
+}
+
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
